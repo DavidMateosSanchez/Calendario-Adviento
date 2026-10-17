@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pine: #1f5240;
+  --color-pine-dark: #153a2d;
+  --color-pine-light: #e4efe8;
+  --color-cream: #fbf7ee;
+  --color-berry: #a8403f;
+  --color-gold: #c4973b;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+body {
+  margin: 0;
+  color: #2a2a26;
+  background-color: #f4efe3;
+  background-image:
+    radial-gradient(circle at 20px 30px, rgba(255, 255, 255, 0.95) 1.5px, transparent 2.5px),
+    radial-gradient(circle at 80px 90px, rgba(255, 255, 255, 0.95) 1.2px, transparent 2.2px);
+  background-size: 120px 120px;
+}
+
+/* En la capa "components" para que las clases de utilidad (pr-7, w-auto, !mb-0...) puedan sobrescribirlas */
+@layer components {
+  .btn {
+    @apply inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-pine/30 bg-white px-3 py-1.5 text-sm font-medium text-pine-dark shadow-sm transition hover:bg-pine-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply border-pine bg-pine text-white hover:bg-pine-dark;
+  }
+  .btn-danger {
+    @apply border-berry/40 text-berry hover:bg-berry/10;
+  }
+  .input {
+    @apply w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm text-stone-800 placeholder:text-stone-400 focus:border-pine focus:outline-none focus:ring-2 focus:ring-pine/25;
+  }
+  .label {
+    @apply mb-1 block text-xs font-semibold tracking-wide text-stone-500 uppercase;
+  }
+}
